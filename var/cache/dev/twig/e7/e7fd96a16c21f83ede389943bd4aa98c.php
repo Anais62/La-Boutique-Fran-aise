@@ -200,9 +200,13 @@ class __TwigTemplate_5ee18a366853878666f899fb5a49370c extends Template
             // line 92
             $context['_parent'] = $context;
             $context['_seq'] = twig_ensure_traversable((isset($context["headers"]) || array_key_exists("headers", $context) ? $context["headers"] : (function () { throw new RuntimeError('Variable "headers" does not exist.', 92, $this->source); })()));
-            foreach ($context['_seq'] as $context["_key"] => $context["header"]) {
+            foreach ($context['_seq'] as $context["key"] => $context["header"]) {
                 // line 93
-                echo "      <div class=\"carousel-item active\" style=\"background: url('/uploads/";
+                echo "      <div class=\"carousel-item ";
+                if (($context["key"] == 0)) {
+                    echo " active";
+                }
+                echo "\" style=\"background: url('/uploads/";
                 echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["header"], "illustration", [], "any", false, false, false, 93), "html", null, true);
                 echo "');background-size:cover;\">
         
@@ -228,7 +232,7 @@ class __TwigTemplate_5ee18a366853878666f899fb5a49370c extends Template
       ";
             }
             $_parent = $context['_parent'];
-            unset($context['_seq'], $context['_iterated'], $context['_key'], $context['header'], $context['_parent'], $context['loop']);
+            unset($context['_seq'], $context['_iterated'], $context['key'], $context['header'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
             // line 104
             echo "    </div>
@@ -397,7 +401,7 @@ class __TwigTemplate_5ee18a366853878666f899fb5a49370c extends Template
      */
     public function getDebugInfo()
     {
-        return array (  370 => 143,  360 => 142,  350 => 122,  340 => 121,  327 => 16,  317 => 15,  298 => 9,  288 => 144,  286 => 142,  279 => 138,  262 => 123,  260 => 121,  254 => 120,  247 => 115,  234 => 104,  221 => 99,  217 => 98,  213 => 97,  205 => 93,  201 => 92,  194 => 87,  184 => 84,  180 => 83,  176 => 81,  174 => 80,  162 => 71,  158 => 70,  154 => 68,  146 => 66,  136 => 64,  134 => 63,  125 => 57,  116 => 51,  106 => 44,  96 => 37,  92 => 36,  88 => 35,  71 => 20,  69 => 15,  63 => 12,  57 => 9,  47 => 1,);
+        return array (  374 => 143,  364 => 142,  354 => 122,  344 => 121,  331 => 16,  321 => 15,  302 => 9,  292 => 144,  290 => 142,  283 => 138,  266 => 123,  264 => 121,  258 => 120,  251 => 115,  238 => 104,  225 => 99,  221 => 98,  217 => 97,  205 => 93,  201 => 92,  194 => 87,  184 => 84,  180 => 83,  176 => 81,  174 => 80,  162 => 71,  158 => 70,  154 => 68,  146 => 66,  136 => 64,  134 => 63,  125 => 57,  116 => 51,  106 => 44,  96 => 37,  92 => 36,  88 => 35,  71 => 20,  69 => 15,  63 => 12,  57 => 9,  47 => 1,);
     }
 
     public function getSourceContext()
@@ -493,8 +497,8 @@ class __TwigTemplate_5ee18a366853878666f899fb5a49370c extends Template
       
     </div>
     <div class=\"carousel-inner\">
-    {% for header in headers %}
-      <div class=\"carousel-item active\" style=\"background: url('/uploads/{{ header.illustration }}');background-size:cover;\">
+    {% for key, header in headers %}
+      <div class=\"carousel-item {% if key == 0  %} active{% endif %}\" style=\"background: url('/uploads/{{ header.illustration }}');background-size:cover;\">
         
         <div class=\"container\">
           <div class=\"carousel-caption text-start\">

@@ -89,8 +89,8 @@
       
     </div>
     <div class="carousel-inner">
-    {% for header in headers %}
-      <div class="carousel-item active" style="background: url('/uploads/{{ header.illustration }}');background-size:cover;">
+    {% for key, header in headers %}
+      <div class="carousel-item {% if key == 0  %} active{% endif %}" style="background: url('/uploads/{{ header.illustration }}');background-size:cover;">
         
         <div class="container">
           <div class="carousel-caption text-start">
